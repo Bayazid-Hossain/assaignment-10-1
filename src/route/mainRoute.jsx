@@ -14,14 +14,18 @@ import User from "../pages/User";
 import Layout from "../layout/Layout";
 
 const mainRoute = createBrowserRouter([
+
     {
+
       path :'/',
       element : <App></App>,
       errorElement : <ErrorPage></ErrorPage>,
       children : [
         {
+
           path:'/',
           element : <Home></Home>
+
         },
         {
           path:'/login',
@@ -31,6 +35,7 @@ const mainRoute = createBrowserRouter([
           path:'/register',
           element : <Register></Register>
         },
+
         {
           path: '/blog',
           element : <Blog></Blog>
@@ -39,6 +44,7 @@ const mainRoute = createBrowserRouter([
           path: '/about',
           element : <About></About>
         },
+
         {
           path: '/contact',
           element : <Contact></Contact>
@@ -51,10 +57,12 @@ const mainRoute = createBrowserRouter([
           path:'/user',
           element :<PrivateRoute><User></User></PrivateRoute>
         }
+
       
       ]
     },
     {
+
       path :'/',
       element : <Layout></Layout>,
       errorElement : <ErrorPage></ErrorPage>,
@@ -64,6 +72,7 @@ const mainRoute = createBrowserRouter([
           element : <PrivateRoute><ChefRecipes></ChefRecipes></PrivateRoute>,
           loader : ({params}) => fetch(`https://dish-diary-server.vercel.app/chefrecipes/${params.id}`)
         }
+        
       ]
     }
   ])
